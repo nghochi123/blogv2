@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
-import { FaHome, FaEnvelope, FaTag, FaUser, FaRss, FaBookReader } from "react-icons/fa/";
+import { FaHome, FaTag, FaUser } from "react-icons/fa/";
 
 import Item from "./Item";
 import Expand from "./Expand";
@@ -15,9 +15,6 @@ class Menu extends React.Component {
     this.items = [
       { to: "/", label: "Home", icon: FaHome },
       { to: "/tags/", label: "Tags", icon: FaTag },
-      { to: "/subscribe/", label: "Subscribe", icon: FaRss },
-      { to: "/learn/", label: "Learn", icon: FaBookReader },
-      { to: "/contact/", label: "Contact", icon: FaEnvelope },
       { to: "/about/", label: "About", icon: FaUser },
     ];
 
@@ -26,14 +23,14 @@ class Menu extends React.Component {
 
   state = {
     open: false,
-    hiddenItems: []
+    hiddenItems: [],
   };
 
   static propTypes = {
     path: PropTypes.string.isRequired,
     fixed: PropTypes.bool.isRequired,
     screenWidth: PropTypes.number.isRequired,
-    theme: PropTypes.object.isRequired
+    theme: PropTypes.object.isRequired,
   };
 
   componentDidMount() {
@@ -81,12 +78,12 @@ class Menu extends React.Component {
           item.classList.remove("item");
           result.hiddenItems.push({
             to: link.getAttribute("data-slug"),
-            label: link.text
+            label: link.text,
           });
         }
         return result;
       },
-      { visibleItems: [], cumulativeWidth: 0, hiddenItems: [] }
+      { visibleItems: [], cumulativeWidth: 0, hiddenItems: [] },
     );
 
     this.setState(prevState => ({ hiddenItems: menu.hiddenItems }));
@@ -139,14 +136,13 @@ class Menu extends React.Component {
             ))}
           </ul>
           {this.state.hiddenItems.length > 0 && <Expand onClick={this.toggleMenu} theme={theme} />}
-          {open &&
-            screenWidth >= 1024 && (
-              <ul className="hiddenItemList">
-                {this.state.hiddenItems.map(item => (
-                  <Item item={item} key={item.label} hiddenItem theme={theme} />
-                ))}
-              </ul>
-            )}
+          {open && screenWidth >= 1024 && (
+            <ul className="hiddenItemList">
+              {this.state.hiddenItems.map(item => (
+                <Item item={item} key={item.label} hiddenItem theme={theme} />
+              ))}
+            </ul>
+          )}
         </nav>
 
         {/* --- STYLES --- */}

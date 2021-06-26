@@ -11,12 +11,12 @@ const Blog = props => {
     <React.Fragment>
       <main className="main">
         <ul>
-          {posts.map((post,index) => {
+          {posts.map((post, index) => {
             const {
               node,
               node: {
-                fields: { slug }
-              }
+                fields: { slug },
+              },
             } = post;
             return <Teaser key={slug} post={node} theme={theme} index={index} />;
           })}
@@ -60,7 +60,7 @@ const Blog = props => {
 
 Blog.propTypes = {
   posts: PropTypes.array.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Blog;

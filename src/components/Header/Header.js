@@ -11,7 +11,7 @@ import avatar from "../../images/jpg/avatar.jpg";
 
 class Header extends React.Component {
   state = {
-    fixed: false
+    fixed: false,
   };
 
   visibilitySensorChange = val => {
@@ -23,9 +23,7 @@ class Header extends React.Component {
   };
 
   getHeaderSize = () => {
-    const fixed = this.state.fixed ? "fixed" : "";
-    const homepage = this.props.path === "/" ? "homepage" : "";
-    return "fixed"; // `${fixed} ${homepage}` (Change me if you want a more "lively" navbar)
+    return "fixed";
   };
 
   render() {
@@ -37,23 +35,19 @@ class Header extends React.Component {
         <header className={`header ${this.getHeaderSize()}`}>
           <Link to="/about/" className="logoType">
             <div className="logo">
-              <img src={config.gravatarImgMd5=="" ? avatar : config.gravatarImgMd5 } alt={config.siteTitle} />
+              <img
+                src={config.gravatarImgMd5 == "" ? avatar : config.gravatarImgMd5}
+                alt={config.siteTitle}
+              />
             </div>
             <div className="type">
               <h1>{config.headerTitle}</h1>
               <h2>{config.headerSubTitle}</h2>
             </div>
           </Link>
-            <ScreenWidthContext.Consumer>
-              {width => (
-                <Menu
-                  path={path}
-                  fixed={fixed}
-                  screenWidth={width}
-                  theme={theme}
-                />
-              )}
-            </ScreenWidthContext.Consumer>
+          <ScreenWidthContext.Consumer>
+            {width => <Menu path={path} fixed={fixed} screenWidth={width} theme={theme} />}
+          </ScreenWidthContext.Consumer>
         </header>
         <VisibilitySensor onChange={this.visibilitySensorChange}>
           <div className="sensor" />
@@ -248,7 +242,7 @@ class Header extends React.Component {
 
 Header.propTypes = {
   path: PropTypes.string.isRequired,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Header;

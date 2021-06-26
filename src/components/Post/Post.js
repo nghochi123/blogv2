@@ -15,12 +15,12 @@ const Post = props => {
       htmlAst,
       fields: { prefix, slug },
       frontmatter: { title, author, tags },
-      parent: { modifiedTime }
+      parent: { modifiedTime },
     },
     authornote,
     next: nextPost,
     prev: prevPost,
-    theme
+    theme,
   } = props;
 
   return (
@@ -31,8 +31,8 @@ const Post = props => {
       </header>
       <Bodytext content={post} theme={theme} />
       <footer>
-         {/*<Author note={authornote} theme={theme} /> */}
-         <NextPrev next={nextPost} prev={prevPost} theme={theme} />
+        {/*<Author note={authornote} theme={theme} /> */}
+        <NextPrev next={nextPost} prev={prevPost} theme={theme} />
       </footer>
     </React.Fragment>
   );
@@ -43,7 +43,7 @@ Post.propTypes = {
   authornote: PropTypes.string.isRequired,
   next: PropTypes.object,
   prev: PropTypes.object,
-  theme: PropTypes.object.isRequired
+  theme: PropTypes.object.isRequired,
 };
 
 export default Post;
