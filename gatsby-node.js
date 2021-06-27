@@ -1,7 +1,7 @@
 const _ = require("lodash");
 const path = require("path");
 const Promise = require("bluebird");
-const fs = require('fs');
+const fs = require("fs");
 
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -18,34 +18,34 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       createNodeField({
         node,
         name: `slug`,
-        value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`
+        value: `${separtorIndex ? "/" : ""}${slug.substring(shortSlugStart)}`,
       });
     }
     createNodeField({
       node,
       name: `prefix`,
-      value: separtorIndex ? slug.substring(1, separtorIndex) : ""
+      value: separtorIndex ? slug.substring(1, separtorIndex) : "",
     });
     createNodeField({
       node,
       name: `source`,
-      value: source
+      value: source,
     });
   }
 };
 
 function createPaginationJSON(pathSuffix, pagePosts) {
-  const dir = "public/paginationJson/"
-  if (!fs.existsSync(dir)){
+  const dir = "public/paginationJson/";
+  if (!fs.existsSync(dir)) {
     fs.mkdirSync(dir);
   }
-  const filePath = dir+"index"+pathSuffix+".json";
+  const filePath = dir + "index" + pathSuffix + ".json";
   const dataToSave = JSON.stringify(pagePosts);
   fs.writeFile(filePath, dataToSave, function(err) {
-    if(err) {
+    if (err) {
       return console.log(err);
     }
-  }); 
+  });
 }
 
 exports.createPages = ({ graphql, actions }) => {
@@ -55,9 +55,9 @@ exports.createPages = ({ graphql, actions }) => {
     const postTemplate = path.resolve("./src/templates/PostTemplate.js");
     const pageTemplate = path.resolve("./src/templates/PageTemplate.js");
     const tagTemplate = path.resolve("./src/templates/TagTemplate.js");
-    
-    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development"
-    console.log(`Using environment config: '${activeEnv}'`)
+
+    const activeEnv = process.env.ACTIVE_ENV || process.env.NODE_ENV || "development";
+    console.log(`Using environment config: '${activeEnv}'`);
 
     resolve(
       graphql(
@@ -65,41 +65,47 @@ exports.createPages = ({ graphql, actions }) => {
           {
             allMarkdownRemark(
               filter: { fields: { slug: { ne: null } } }
-              sort: { fields: [fields___prefix, fields___slug] order: DESC }
+              sort: { fields: [fields___prefix, fields___slug], order: DESC }
             ) {
-                edges {
-                  node {
-                      id
-                      excerpt
-                      fields {
-                          slug
-                          prefix
-                          source
-                      }
-                      frontmatter {
-                          title
-                          tags
-                          cover {
-                              children {
-                                  ... on ImageSharp {
-                                      fluid(maxWidth: 800, maxHeight: 360, cropFocus: CENTER, quality: 90, traceSVG: { color: "#f9ebd2" }) {
-                                          tracedSVG
-                                          aspectRatio
-                                          src
-                                          srcSet
-                                          srcWebp
-                                          srcSetWebp
-                                          sizes
-                                      }
-                                  }
-                              }
-                          }
-                      }
+              edges {
+                node {
+                  id
+                  excerpt
+                  fields {
+                    slug
+                    prefix
+                    source
                   }
+                  frontmatter {
+                    title
+                    tags
+                    cover {
+                      children {
+                        ... on ImageSharp {
+                          fluid(
+                            maxWidth: 800
+                            maxHeight: 360
+                            cropFocus: CENTER
+                            quality: 90
+                            traceSVG: { color: "#f9ebd2" }
+                          ) {
+                            tracedSVG
+                            aspectRatio
+                            src
+                            srcSet
+                            srcWebp
+                            srcSetWebp
+                            sizes
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
-        `
+        `,
       ).then(result => {
         if (result.errors) {
           console.log(result.errors);
@@ -110,10 +116,9 @@ exports.createPages = ({ graphql, actions }) => {
 
         // Don't leak drafts into production.
         if (activeEnv == "production") {
-          items = items.filter(item => 
-            item.node.fields.prefix &&
-            !(item.node.fields.prefix+"").startsWith("draft")
-          )
+          items = items.filter(
+            item => item.node.fields.prefix && !(item.node.fields.prefix + "").startsWith("draft"),
+          );
         }
 
         // Create tags list
@@ -121,8 +126,8 @@ exports.createPages = ({ graphql, actions }) => {
         items.forEach(edge => {
           const {
             node: {
-              frontmatter: { tags }
-            }
+              frontmatter: { tags },
+            },
           } = edge;
 
           if (tags && tags != null) {
@@ -130,7 +135,7 @@ exports.createPages = ({ graphql, actions }) => {
               if (tag && tag !== null) {
                 tagSet.add(tag);
               }
-            })
+            });
           }
         });
 
@@ -141,8 +146,8 @@ exports.createPages = ({ graphql, actions }) => {
             path: `/tag/${_.kebabCase(tag)}/`,
             component: tagTemplate,
             context: {
-              tag
-            }
+              tag,
+            },
           });
         });
 
@@ -161,8 +166,8 @@ exports.createPages = ({ graphql, actions }) => {
               slug,
               next,
               prev,
-              source
-            }
+              source,
+            },
           });
         });
 
@@ -177,8 +182,8 @@ exports.createPages = ({ graphql, actions }) => {
             component: pageTemplate,
             context: {
               slug,
-              source
-            }
+              source,
+            },
           });
         });
 
@@ -189,25 +194,25 @@ exports.createPages = ({ graphql, actions }) => {
         const numPages = Math.ceil(posts.length / postsPerPage);
 
         _.times(numPages, i => {
-          const pathSuffix = (i>0 ? i+1 : "");
+          const pathSuffix = i > 0 ? i + 1 : "";
 
           // Get posts for this page
           const startInclusive = i * postsPerPage;
           const endExclusive = startInclusive + postsPerPage;
-          const pagePosts = posts.slice(startInclusive, endExclusive)
-    
+          const pagePosts = posts.slice(startInclusive, endExclusive);
+
           createPaginationJSON(pathSuffix, pagePosts);
           createPage({
-            path: `/`+pathSuffix,
+            path: `/` + pathSuffix,
             component: path.resolve("./src/templates/index.js"),
             context: {
               numPages,
               currentPage: i + 1,
-              initialPosts: pagePosts
-            }
+              initialPosts: pagePosts,
+            },
           });
         });
-      })
+      }),
     );
   });
 };

@@ -11,18 +11,17 @@ import Seo from "../components/Seo";
 const TagsPage = props => {
   const {
     data: {
-      posts: { edges: posts }
-    }
+      posts: { edges: posts },
+    },
   } = props;
 
   // Create tags list
   const tagsPosts = {};
   posts.forEach(edge => {
-    
     const {
       node: {
-        frontmatter: { tags }
-      }
+        frontmatter: { tags },
+      },
     } = edge;
 
     if (tags && tags != null) {
@@ -33,7 +32,7 @@ const TagsPage = props => {
           }
           tagsPosts[tag].push(edge);
         }
-      })
+      });
     }
   });
 
@@ -62,7 +61,6 @@ const TagsPage = props => {
           h2 {
             margin: 0 0 0.5em;
             color: ${theme.color.neutral.gray.j};
-            
           }
           @from-width desktop {
             :global(a:hover) {
@@ -76,13 +74,13 @@ const TagsPage = props => {
         `}</style>
       </Article>
 
-      <Seo pageTitle="Tags"/>
+      <Seo pageTitle="Tags" />
     </React.Fragment>
   );
 };
 
 TagsPage.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
 };
 
 export default TagsPage;
@@ -91,9 +89,7 @@ export default TagsPage;
 export const query = graphql`
   query PostsQuery {
     posts: allMarkdownRemark(
-      filter: {
-        fileAbsolutePath: { regex: "//[0-9]+.*--/" }
-      }
+      filter: { fileAbsolutePath: { regex: "//[0-9]+.*--/" } }
       sort: { fields: [fields___prefix], order: DESC }
     ) {
       edges {

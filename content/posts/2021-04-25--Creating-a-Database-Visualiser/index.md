@@ -1,6 +1,6 @@
 ---
 title: Creating a Database Visualiser
-tags: ["Web", "React"]
+tags: ["web", "react"]
 cover: COVER.png
 author: Ng Ho Chi
 ---

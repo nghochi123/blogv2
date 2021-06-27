@@ -12,8 +12,8 @@ const TagTemplate = props => {
   const {
     pageContext: { tag },
     data: {
-      allMarkdownRemark: { totalCount, edges }
-    }
+      allMarkdownRemark: { totalCount, edges },
+    },
   } = props;
 
   return (
@@ -24,7 +24,7 @@ const TagTemplate = props => {
             <header>
               <Headline theme={theme}>
                 <span>Posts with tag</span> <FaTag />
-                {tag}
+                {tag.toUpperCase()}
               </Headline>
               <p className="meta">
                 <strong>{totalCount}</strong> post{totalCount > 1 ? "s " : " "} tagged:
@@ -35,14 +35,14 @@ const TagTemplate = props => {
         )}
       </ThemeContext.Consumer>
 
-      <Seo />
+      <Seo pageTitle={tag.toUpperCase()} />
     </React.Fragment>
   );
 };
 
 TagTemplate.propTypes = {
   data: PropTypes.object.isRequired,
-  pageContext: PropTypes.object.isRequired
+  pageContext: PropTypes.object.isRequired,
 };
 
 export default TagTemplate;
