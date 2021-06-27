@@ -1,4 +1,3 @@
-import { Link, graphql, StaticQuery } from "gatsby";
 import Picture from "gatsby-image";
 import React from "react";
 import theme from "../../theme/theme.yaml";

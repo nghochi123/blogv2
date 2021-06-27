@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 require("core-js/fn/array/from");
 
-import { FaHome, FaTag, FaUser } from "react-icons/fa/";
+import { FaFlag, FaHome, FaTag, FaUser, FaLaptopCode } from "react-icons/fa/";
 
 import Item from "./Item";
 import Expand from "./Expand";
@@ -16,6 +16,8 @@ class Menu extends React.Component {
       { to: "/", label: "Home", icon: FaHome },
       { to: "/tags/", label: "Tags", icon: FaTag },
       { to: "/about/", label: "About", icon: FaUser },
+      { to: "/tag/ctf/", label: "CTFs", icon: FaFlag },
+      { to: "/tag/web/", label: "Web Dev", icon: FaLaptopCode },
     ];
 
     this.renderedItems = []; // will contain references to rendered DOM elements of menu

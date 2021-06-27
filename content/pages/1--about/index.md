@@ -1,11 +1,11 @@
 ---
 title: About
 ---
-<re-img src="avatar-large.jpeg" hovereffect=true></re-img>
 
-Hi there. I'm Atte Juvonen and this is my personal blog.
-I ramble about code, data, and other geeky interests.
-This blog is open sourced on [GitHub](https://www.github.com/baobabKoodaa/blog/),
-feel free to submit corrections or use the code to create your own blog.
+<re-img src="montreal.jpg" hovereffect=true></re-img>
+
+Hi there. I'm Ng Ho Chi and this is my personal blog.
+I'm interested in code, hacking and robotics.
+This blog template is open source on [baobabKoodaa's GitHub](https://www.github.com/baobabKoodaa/blog/).
 
 <re-icons></re-icons>
