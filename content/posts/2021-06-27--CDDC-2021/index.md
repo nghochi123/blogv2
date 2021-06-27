@@ -1,7 +1,7 @@
 ---
 title: CDDC 2021
 tags: ["CTF", "cybersecurity"]
-cover: TESLAREACTOR.png
+cover: ./TESLAREACTOR.png
 author: Ng Ho Chi
 ---
 
