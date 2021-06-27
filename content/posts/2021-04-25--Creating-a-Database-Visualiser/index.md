@@ -5,8 +5,6 @@ cover: COVER.png
 author: Ng Ho Chi
 ---
 
-## Introduction
-
 What better way to hone your web development skills than to make random apps?
 
 I was doing a [MySQL course on Udemy](https://www.udemy.com/course/the-ultimate-mysql-bootcamp-go-from-sql-beginner-to-expert/?ranMID=39197&ranEAID=A3wU3Z96xXM&ranSiteID=A3wU3Z96xXM-72P09tkOlaPPno_CYLA75g&LSNPUBID=A3wU3Z96xXM&utm_source=aff-campaign&utm_medium=udemyads) and was using the CLI for CRUD operations andto view my tables in the database. I remember thinking that there could be a better way to visualise the tables and my data, and wanted to try my hand at building something from scratch.
