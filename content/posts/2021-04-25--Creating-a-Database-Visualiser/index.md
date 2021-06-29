@@ -29,7 +29,7 @@ Next.js is more for creating sites with more emphasis on Server Side Rendering, 
 
 One of my favourite things about Next.js is that you can have APIs right inside your app. That is, links to '/api/...' serve as APIs where I can communicate with my database, without creating an intermediate server. Usually, what I would be doing (and I think what most people do) is to create an intermediate server with Express or some other back end web application framework. The simplified version is that the front end makes requests to the database through the server which would then return the needed information through the server again. Notice how the server is just a middleman for everything.
 
-![image](./architecture.svg)
+![image](./JAM.jpg)
 
 This should be a decent representation of what I'm trying to present, but I'm still quite a beginner at this so don't take my word for it. Gatsby also provides such built in features, using GraphQL instead of REST, where I was able to get the markdown data for my blog posts.
 
