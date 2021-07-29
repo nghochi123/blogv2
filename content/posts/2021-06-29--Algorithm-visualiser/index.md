@@ -1,5 +1,5 @@
 ---
-title: Algorithm visualiser
+title: Algorithm Visualiser
 tags: ["web", "algorithms"]
 cover: VIS.png
 author: Ng Ho Chi
