@@ -7,7 +7,7 @@ author: Ng Ho Chi
 
 <re-img src="VIS.png" title="CDDC"></re-img>
 
-Recently, I've been looking back at some older projects and some notes I had written for myself after I "finished" them. More accurately speaking, I decided to temporarily abandon them until I got good enough to figure out how to implement my ideas. One of these abandoned projects is my [Algorithm Visualiser](https://hcvisualisation.netlify.app/).
+Recently, I've been looking back at some older projects and some notes I had written for myself after I "finished" them. More accurately speaking, I decided to temporarily abandon them until I got good enough to figure out how to implement my ideas. One of these abandoned projects is my [Algorithm Visualiser](https://vis.nghochi.xyz/).
 
 ![image](./VISALGO.png)
 

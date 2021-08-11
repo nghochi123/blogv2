@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: "Ng Ho Chi", // <title>
   shortSiteTitle: "Ng Ho Chi", // <title> ending for posts and pages
   siteDescription: "Ng Ho Chi's Blog",
-  siteUrl: "https://nghochi.netlify.app/",
+  siteUrl: "https://nghochi.xyz/",
   // pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "en",
@@ -11,7 +11,7 @@ module.exports = {
   authorName: "Ng Ho Chi",
   authorTwitterAccount: "",
   authorGithub: "https://github.com/nghochi123",
-  authorWeb: "https://nghochi.netlify.app/",
+  authorWeb: "https://nghochi.xyz/",
   authorLinkedin: "https://www.linkedin.com/in/ng-ho-chi-809a881b9/",
   authorYoutube: "https://www.youtube.com/channel/UCkEYiqaIaCRpTgr4hMVPoPQ",
 
