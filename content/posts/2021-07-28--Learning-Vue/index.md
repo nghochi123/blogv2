@@ -1,5 +1,5 @@
 ---
-title: Learning Vue in 4 Days
+title: Learning Vue
 tags: ["web", "vue"]
 cover: VUE.jpeg
 author: Ng Ho Chi
@@ -21,7 +21,7 @@ Personally, I'm more of a visual learner, and greatly prefer learning through vi
 
 ![image](./RVV.png)
 
-My background is in React, and I'll kind of just be sharing the differences between React and Vue in my opinion. I didn't actually plan on speedrunning the course, but halfway through the course, I found that I was completing it at quite a fast pace, and tried to finish it as fast as possible, while absorbing as much as I can (by spending a lot of time on it and not getting distracted).
+My background is in React, and I'll kind of just be sharing the differences between React and Vue in my opinion. I didn't actually plan on speedrunning the course, but halfway through the course, I found that I was completing it at quite a fast pace, and tried to finish it as fast as possible, while absorbing as much as I can (by spending a lot of time on it and not getting distracted). I managed to power through the course within 4 days, but I highly recommend going through it slowly and trying to understand the concepts well.
 
 ## Basics
 
